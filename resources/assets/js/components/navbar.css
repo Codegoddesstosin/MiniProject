@@ -1,0 +1,45 @@
+.navbar-brand {
+  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYAJIcDP5RaxH29Fy42ZyAeXLtFq4ZmNGrCSyT9l6x2f3qW-lZ) center / contain no-repeat;
+  width: 200px;
+}
+
+
+
+
+
+
+	<v-layout row wrap>
+	<v-flex xs12>
+	<v-carousel>
+		<v-carousel-item 
+		v-for="connect in connects" 
+		:src="connect.imageUrl" 
+		:key="connect.id">
+			
+		</v-carousel-item>
+  </v-carousel>
+</v-flex>
+</v-layout>
+</v-container>
+</template>
+
+<script>
+export default {
+	data () {
+		return  {
+			connects: [
+               { imageUrl: 'https://images.pexels.com/photos/1093903/pexels-photo-1093903.jpeg?auto=compress&cs=tinysrgb&h=350', id: '1', title: 'Lets Connect'},
+
+                { imageUrl: 'https://images.pexels.com/photos/267447/pexels-photo-267447.jpeg?auto=compress&cs=tinysrgb&h=350' , id: '5', title: 'Meet-up?'},
+
+                 { imageUrl: 'https://images.pexels.com/photos/1080858/pexels-photo-1080858.jpeg?auto=compress&cs=tinysrgb&h=350', id: '2', title: 'Bored? lets have fun'},
+
+                  { imageUrl: 'https://images.pexels.com/photos/164531/pexels-photo-164531.jpeg?auto=compress&cs=tinysrgb&h=350', id: '3', title: 'your mind cant contain it. let the world know'},
+
+                   { imageUrl: 'https://images.pexels.com/photos/839465/pexels-photo-839465.jpeg?auto=compress&cs=tinysrgb&h=350', id: '4', title: 'Mind Analysis'}
+			]
+		}
+	}
+}
+Vue.use(Vuetify)
+</script>
