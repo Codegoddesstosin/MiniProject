@@ -10,6 +10,7 @@ class MagicAuthentication
 {
 	protected $request;
 
+    
     protected $identifier = 'email';
 
 
@@ -21,14 +22,15 @@ class MagicAuthentication
 
 
 
-
+     //method to request link
 	public function requestLink()
 	{
 
-	
+	     //pluck out the user by the email(which is the id set above)
         $user = $this->getUserByIdentifier($this->request->get($this->identifier));
-
+         //delete existing token before a new one is generated
         $user->token()->delete();
+        
         $user->storeToken()->sendMagicLink([
            'remember' => $this->request->has('remember'),
            'email' => $user->email,
@@ -39,7 +41,7 @@ class MagicAuthentication
 
   	protected function getUserByIdentifier($value)
 	{
-		
+		//look up the user
 	return User::where($this->identifier, $value)->firstorFail();
 	} 
 

@@ -24,13 +24,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//routes for passwordless authentication
+
 Route::get('/login/magic', 'Auth\MagicLoginController@show');
 
 Route::post('/login/magic', 'Auth\MagicLoginController@sendToken');
 
 Route::get('/login/magic/{token}', 'Auth\MagicLoginController@validateToken');
 
-
+//Routes for laravel socilaite login
 Route::get('login/github', 'Auth\LoginController@redirectToProvider');
 
 Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');
